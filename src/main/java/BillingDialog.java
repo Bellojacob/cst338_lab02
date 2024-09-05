@@ -6,7 +6,7 @@ public class BillingDialog {
         yourBill.inputTimeWorked();
         yourBill.updateFee();
         yourBill.outputBill();
-        System.out.println("Thanks for doing business with us.");
+        System.out.println("\nThanks for doing business with us.");
 
     }
 }

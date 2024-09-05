@@ -1,3 +1,4 @@
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class CourseInfo {
@@ -24,11 +25,19 @@ public class CourseInfo {
         System.out.print("Enter enrollment: ");
         enrollment = keyboard.nextInt( );
 
-        System.out.println("Enter Student scores: ");
+        System.out.println("Enter Student scores (1-100)");
         for (int i = 0; i < enrollment; i++) {
             System.out.println("Enter a score: ");
-            double score = keyboard.nextInt();
-            studentScores += score;
+            try {
+                double score = keyboard.nextDouble();
+                studentScores += score;
+            } catch(InputMismatchException e){
+                System.out.println("Please enter a numerical score: ");
+                keyboard.next();
+                double score = keyboard.nextDouble();
+                studentScores += score;
+            }
+
         }
 
         averageScore = studentScores / enrollment;
